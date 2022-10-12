@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      const vm = Vue.createApp({
+        data() {
+          return {
+            img: "https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ",
+            alt: "Imagen de un aguacate",
+            width: "250",
+            src: "src",
+            ancho: "width",
+            images: {
+              attr: "src",
+              textoalternativo: "alt",
+              texto: "Myimagen",
+              img: "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ",
+              size: "width",
+              width: "250",
+            },
+          };
+        },
+        template: `
+            <img v-bind="{'alt': alt, 'width': width, 'src': img}"/>
+            <img :src="img" :alt="alt" :width="width"/>
+            <img v-bind:src="img"  v-bind:width="width"/>
+            <img v-bind:[src]="img"  v-bind:[ancho]="width" />
+            <img :[images.attr]="images.img" :[images.size]="images.width" :[images.textoalternativo]="images.texto" />
+            `,
+      }).mount("#app");
+      console.log(vm);
+    </script>
+  </body>
+</html>

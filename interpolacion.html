@@ -16,26 +16,18 @@
             data() {
                 return {
                     text: 'Hola vue',
-                    xd: 'Hola xd',
-                    aguacate: 'Hola aguacatito',
-                    aguacate2: 'No puedes modificarme >:v',
-                    'aguacateHtml': '<p>Hola aguacatito</p>',
-                    img: 'https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ',
-                    alt: 'Imagen de un aguacate',
-                    ancho: '250',
+                    text_once: 'Hola vue, pero solo una vez',
+                    html: '<p>Hola aguacatito</p>',
                 }
             },
             template: `
             <div>{{ text }}</div>
             <div v-text="aguacate">
             </div>
-            <div v-once v-text="aguacate2">
+            <div v-once v-text="text_once">
             </div>
-            <section v-html="aguacateHtml">
+            <section v-html="html">
             </section>
-            <img v-bind="{'alt': alt, 'width': '250', 'src': img}"/>
-            <img :src="img" :alt="alt" :width="ancho"/>
-            <img v-bind:src="img"  v-bind:width="ancho"/>
             `,
         }).mount('#app')
         console.log(vm)

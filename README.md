@@ -135,3 +135,7 @@ const vm = Vue.createApp({
     `,
 }).mount('#app')
 ```
+
+## Atributos reactivos
+
+
