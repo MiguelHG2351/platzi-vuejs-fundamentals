@@ -49,12 +49,11 @@ Con el cdn podemos empezar a trabajar con Vue.js agregando nuestro código debaj
 
 ```html
     <script>
-        new Vue({
-            el: '#app',
+        const app = Vue.createApp({
             data: {
                 message: 'Hello Vue.js'
             }
-        })
+        }).mount('#app')
     </script>
 ```
 
