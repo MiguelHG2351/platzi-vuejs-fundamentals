@@ -13,7 +13,6 @@
     <script src="https://unpkg.com/vue@next"></script>
     <script>
         const vm = Vue.createApp({
-            el: '#app',
             data() {
                 return {
                     text: 'Hola vue',
@@ -32,7 +31,7 @@
             <section v-html="aguacateHtml">
             </section>
             `,
-        })
+        }).mount('#app')
         console.log(vm)
     </script>
 </body>

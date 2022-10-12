@@ -84,3 +84,54 @@ Al final nos quedaria algo como esto
 </html>
 ```
 
+## Interpolación
+
+Es la forma en la que podemos mostrar información en el HTML, en Vue.js podemos usar la sintaxis de doble llave para mostrar información en el HTML.
+
+```html
+    <h1>{{ message }}</h1>
+```
+
+## Directivas
+
+Son atributos especiales que comienzan con v- y nos permiten modificar el comportamiento de un elemento en el DOM.
+
+### v-text
+
+Nos permite mostrar texto en el HTML [[ref]](https://vuejs.org/api/built-in-directives.html#v-for)
+
+```html
+    <h1 v-text="message"></h1>
+```
+
+En este caso no necesitamos usar la interpolación, ya que v-text nos permite mostrar texto en el HTML
+
+```js
+const vm = Vue.createApp({
+    data() {
+        return {
+            text: 'Hola vue',
+        }
+    },
+    template:`
+        <div v-text="text">
+        </div>
+    `,
+}).mount('#app')
+```
+
+En caso que queramos insertar html en el template podemos usar la directiva v-html
+
+```js
+const vm = Vue.createApp({
+    data() {
+        return {
+            text: '<h1>Hola vue</h1>',
+        }
+    },
+    template:`
+        <div v-html="text">
+        </div>
+    `,
+}).mount('#app')
+```
