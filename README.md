@@ -138,4 +138,51 @@ const vm = Vue.createApp({
 
 ## Atributos reactivos
 
+Son directivas que nos permiten modificar el comportamiento de un elemento en el DOM, por ejemplo, podemos usar la directiva v-bind para modificar el atributo src de una imagen.
 
+```html
+    <img v-bind="{'alt': alt, 'width': width, 'src': img}"/>
+    <img :attr="img" :alt="alt" :width="width"/>
+```
+
+En javascript lo veriamos de la siguiente forma
+
+```js
+const vm = Vue.createApp({
+    data() {
+        return {
+            img: 'https://vuejs.org/images/logo.png',
+            alt: 'Vue.js',
+            width: 200,
+        }
+    },
+    template:`
+        <div>
+            <img v-bind="{'alt': alt, 'width': width, 'src': img}"/>
+            <img :attr="img" :alt="alt" :width="width"/>
+        </div>
+    `,
+}).mount('#app')
+```
+
+También podemos pasar un objeto como argumento de la directiva v-bind
+
+```js
+    const vm = Vue.createApp({
+        data() {
+          return {
+            images: {
+              attr: "src",
+              textoalternativo: "alt",
+              texto: "Myimagen",
+              img: "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ",
+              size: "width",
+              width: "250",
+            },
+          };
+        },
+        template: `
+            <img :[images.attr]="images.img" :[images.size]="images.width" :[images.textoalternativo]="images.texto" />
+            `,
+    }).mount("#app");
+```
