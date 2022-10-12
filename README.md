@@ -36,3 +36,52 @@ Aquí tenemos el estado de la aplicación. El estado es un objeto que contiene l
 El usuario es el que interactúa con la aplicación. El usuario va a interactuar con la vista, a lo cual la vista va a reaccionar y mandar un nuevo estado.
 
 ![MVVM](./readme_files/mvvm.jpg)
+
+## Configuración de Vue.js
+
+Antes de empezar necesitamos el cdn de Vue.js
+
+```html
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+```
+
+Con el cdn podemos empezar a trabajar con Vue.js agregando nuestro código debajo del cdn
+
+```html
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue.js'
+            }
+        })
+    </script>
+```
+
+Al final nos quedaria algo como esto
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data: {
+                message: 'Hello Vue.js'
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
+```
+
