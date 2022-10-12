@@ -186,3 +186,41 @@ También podemos pasar un objeto como argumento de la directiva v-bind
             `,
     }).mount("#app");
 ```
+
+## Eventos
+
+Son directivas que nos permiten modificar el comportamiento de un elemento en el DOM, por ejemplo, podemos usar la directiva v-on para modificar el atributo src de una imagen.
+
+```html
+    <button v-on:click="handleClick">Click</button>
+    <button @click="handleClick">Click</button>
+```
+
+## Computed
+
+Son propiedades que se calculan a partir de otras propiedades, por ejemplo, podemos usar la directiva v-on para modificar el atributo src de una imagen.
+
+```js
+    const vm = Vue.createApp({
+        data() {
+          return {
+            images: {
+              attr: "src",
+              textoalternativo: "alt",
+              texto: "Myimagen",
+              img: "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ",
+              size: "width",
+              width: "250",
+            },
+          };
+        },
+        computed: {
+          getImg() {
+            return this.images.img;
+          },
+        },
+        template: `
+            <img :[images.attr]="getImg" :[images.size]="images.width" :[images.textoalternativo]="images.texto" />
+            `,
+    }).mount("#app");
+```
